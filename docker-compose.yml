@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: nr-postgres
+    environment:
+      POSTGRES_USER: nr_user
+      POSTGRES_PASSWORD: nr_password
+      POSTGRES_DB: no_reboot_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7
+    container_name: nr-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  pg-data:

@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5433/no_reboot_db
+    username: nr_user
+    password: nr_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+app:
+  jwt:
+    secret: 12345678901234567890123456789012345678901234567890123456789012345678901234567890
+    expirationMs: 86400000
